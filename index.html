@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BESA 5.0 - Jataganar</title>
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .header {
+            font-size: 2em;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #00aa00;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .content {
+            background: #111;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,170,0,0.3);
+        }
+        .content p {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        .green-btn {
+            background-color: #28a745;
+            color: white;
+            font-size: 1.5em;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: 0.2s;
+            box-shadow: 0 0 8px #28a745;
+        }
+        .green-btn:hover {
+            background-color: #218838;
+            transform: scale(1.02);
+            box-shadow: 0 0 15px #28a745;
+        }
+        .note {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">Besa-5.0-Jataganar</div>
+    <div class="content">
+        <p>Projects</p>
+        <p>Wiki</p>
+        <p>Security and quality</p>
+        <p>Insights</p>
+        <p>Settings</p>
+
+        <button class="green-btn" id="btnForward">▶ Përpara (Jeshil)</button>
+        <div class="note">Kliko butonin – hap google.com (mund ta ndryshosh linkun)</div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('btnForward').addEventListener('click', function() {
+        // Ndrysho këtu adresën ku dëshiron të shkojë
+        window.location.href = "https://www.google.com";
+        // Për ta hapur në faqe të re: window.open("https://www.google.com", "_blank");
+    });
+</script>
+</body>
+</html>
