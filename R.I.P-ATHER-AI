@@ -1,0 +1,15 @@
+# BESA 5.0 - Jatagani Core
+
+### Overview
+An advanced framework for territorial intelligence and network security. This system is built on the "Jatagani" protocol, aiming to integrate smart technology into urban infrastructure.
+
+### Key Features:
+* **Sentinel Grid:** Real-time monitoring and situational awareness.
+* **Besa Protocol:** High-level data encryption (AES-GCM).
+* **Smart Cities Ready:** Optimized for public Information Points and media kiosks.
+
+### Security
+The system is protected via authorized access. Only administrators with the specific credentials can access the core functions.
+
+---
+*Developed by: Mandi Jatagani*
