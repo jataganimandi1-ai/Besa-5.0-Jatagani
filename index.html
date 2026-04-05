@@ -1,86 +1,64 @@
 <!DOCTYPE html>
-<html lang="sq">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BESA 5.0 - Jataganar</title>
+    <title>BESA 5.0 | SECURE ACCESS</title>
     <style>
-        body {
-            margin: 0;
-            background: #000;
-            color: #fff;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-        }
-        .header {
-            font-size: 2em;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #00aa00;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        .content {
-            background: #111;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 15px rgba(0,170,0,0.3);
-        }
-        .content p {
-            margin: 10px 0;
-            font-size: 1.2em;
-        }
-        .green-btn {
-            background-color: #28a745;
-            color: white;
-            font-size: 1.5em;
-            padding: 12px 28px;
-            border: none;
-            border-radius: 40px;
-            cursor: pointer;
-            margin-top: 30px;
-            transition: 0.2s;
-            box-shadow: 0 0 8px #28a745;
-        }
-        .green-btn:hover {
-            background-color: #218838;
-            transform: scale(1.02);
-            box-shadow: 0 0 15px #28a745;
-        }
-        .note {
-            margin-top: 20px;
-            font-size: 0.8em;
-            color: #aaa;
-        }
+        body { background-color: #050505; color: #00ffcc; font-family: 'Courier New', Courier, monospace; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; text-align: center; }
+        .vault-container { border: 2px solid #00ffcc; padding: 40px; background: #0a0a0a; box-shadow: 0 0 25px rgba(0, 255, 204, 0.3); border-radius: 5px; max-width: 400px; width: 90%; }
+        input { background: #000; border: 1px solid #00ffcc; color: #00ffcc; padding: 12px; width: 100%; margin: 20px 0; text-align: center; box-sizing: border-box; outline: none; border-radius: 3px; }
+        button { background: #00ffcc; color: #000; border: none; padding: 12px 30px; cursor: pointer; font-weight: bold; text-transform: uppercase; width: 100%; border-radius: 3px; }
+        button:hover { background: #fff; }
+        #access-denied { color: #ff0055; margin-top: 15px; display: none; font-size: 0.9em; }
+        #secure-content { display: none; }
+        .glitch { font-size: 24px; font-weight: bold; margin-bottom: 10px; letter-spacing: 3px; }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="header">Besa-5.0-Jataganar</div>
-    <div class="content">
-        <p>Projects</p>
-        <p>Wiki</p>
-        <p>Security and quality</p>
-        <p>Insights</p>
-        <p>Settings</p>
 
-        <button class="green-btn" id="btnForward">▶ Përpara (Jeshil)</button>
-        <div class="note">Kliko butonin – hap google.com (mund ta ndryshosh linkun)</div>
+    <div id="login-form" class="vault-container">
+        <div class="glitch">BESA 5.0</div>
+        <p style="font-size: 0.8em; color: #888;">JATAGANI CORE PROTOCOL</p>
+        <p>ENTER MASTER KEY</p>
+        <input type="password" id="masterKey" placeholder="••••••••••••">
+        <div id="access-denied">ACCESS DENIED - INVALID KEY</div>
+        <button onclick="unlockVault()">AUTHENTICATE</button>
     </div>
-</div>
 
-<script>
-    document.getElementById('btnForward').addEventListener('click', function() {
-        // Ndrysho këtu adresën ku dëshiron të shkojë
-        window.location.href = "https://www.google.com";
-        // Për ta hapur në faqe të re: window.open("https://www.google.com", "_blank");
-    });
-</script>
+    <div id="secure-content" class="vault-container">
+        <h1 style="color: #fff;">AUTHENTICATED</h1>
+        <hr style="border-color: #00ffcc;">
+        <p>Welcome, Mandi.</p>
+        <p style="font-size: 0.8em; color: #888;">SYSTEM STATUS: <span style="color: #00ffcc;">ONLINE</span></p>
+        <div style="margin-top: 20px; border: 1px dashed #444; padding: 10px; font-size: 0.9em;">
+            All protocols are running under Besa 5.0 encryption.
+        </div>
+        <button onclick="location.reload()" style="margin-top:30px; background:transparent; border: 1px solid #ff0055; color: #ff0055;">TERMINATE SESSION</button>
+    </div>
+
+    <script>
+        function unlockVault() {
+            const input = document.getElementById('masterKey').value;
+            // Master Key i kerkuar:
+            const secret = "JeraJemarErjonaMandiJatagani";
+            
+            if (input === secret) {
+                document.getElementById('login-form').style.display = 'none';
+                document.getElementById('secure-content').style.display = 'block';
+            } else {
+                const error = document.getElementById('access-denied');
+                error.style.display = 'block';
+                document.getElementById('masterKey').value = "";
+            }
+        }
+        
+        // Lejon shtypjen e "Enter" per login
+        document.getElementById("masterKey").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                unlockVault();
+            }
+        });
+    </script>
 </body>
 </html>
