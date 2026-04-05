@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BESA 5.0 - SECURITY ACCESS</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #00ffcc;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-box {
+            border: 1px solid #00ffcc;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+            background: #0a0a0a;
+        }
+        input {
+            background: #111;
+            border: 1px solid #00ffcc;
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            margin-top: 15px;
+            outline: none;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #00ffcc;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        #main-content { display: none; text-align: center; }
+        .error { color: #ff0055; margin-top: 10px; font-size: 0.8em; display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="login-screen" class="login-box">
+        <h2>BESA 5.0</h2>
+        <p>IDENTIFIKOHU PËR QASJE</p>
+        <input type="password" id="passInput" placeholder="Shkruaj fjalëkalimin...">
+        <div id="errorMsg" class="error">Fjalëkalim i pasaktë. Aksesi u refuzua.</div>
+        <button onclick="checkAccess()">HYR NË SISTEM</button>
+    </div>
+
+    <div id="main-content">
+        <h1>BESA 5.0 - AKTIVE</h1>
+        <p style="color: #fff;">Mirësevini në rrjetin Jatagani.</p>
+        <div style="border: 1px solid #00ffcc; padding: 20px; margin-top: 20px;">
+            <p>Sistemi: Online</p>
+            <p>Protokolli: Besa-5.0-Jatagani</p>
+            <p>Statusi: I Enkriptuar</p>
+        </div>
+        <button onclick="location.reload()" style="background: transparent; color: #ff0055; border: 1px solid #ff0055; margin-top: 20px;">LOGOUT</button>
+    </div>
+
+    <script>
+        function checkAccess() {
+            const code = document.getElementById('passInput').value;
+            const target = "JeraJemarErjonaMandiJatagani";
+            const error = document.getElementById('errorMsg');
+            
+            if(code === target) {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            } else {
+                error.style.display = 'block';
+                document.getElementById('passInput').value = "";
+            }
+        }
+    </script>
+</body>
+</html>
